@@ -14,6 +14,7 @@ window.onload = function () {
     autoCloseBrackets: true, // 自动闭合符号
     styleActiveLine: true, // 显示选中行的样式
   }
+  var qs = Qs;
 
   var el = document.getElementById("numbers");
   var myCodeMirror = CodeMirror.fromTextArea(el, options);
@@ -24,7 +25,6 @@ window.onload = function () {
   var run1 = document.getElementById("numbersRun");
   run1.onclick = function () {
     var value = myCodeMirror.getValue();
-    var qs = Qs;
     axios({
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       method: 'post',
@@ -53,7 +53,6 @@ window.onload = function () {
   var run2 = document.getElementById("numbersRun2");
   run2.onclick = function () {
     var value = myCodeMirror2.getValue();
-    var qs = Qs;
     axios({
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       method: 'post',
@@ -82,7 +81,6 @@ window.onload = function () {
   var run3 = document.getElementById("stringsRun");
   run3.onclick = function () {
     var value = myCodeMirror3.getValue();
-    var qs = Qs;
     axios({
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       method: 'post',
@@ -111,7 +109,6 @@ window.onload = function () {
   var run4 = document.getElementById("stringsRun2");
   run4.onclick = function () {
     var value = myCodeMirror4.getValue();
-    var qs = Qs;
     axios({
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       method: 'post',
@@ -140,7 +137,6 @@ window.onload = function () {
   var run5 = document.getElementById("stringsRun3");
   run5.onclick = function () {
     var value = myCodeMirror5.getValue();
-    var qs = Qs;
     axios({
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       method: 'post',
@@ -169,7 +165,6 @@ window.onload = function () {
   var run6 = document.getElementById("stringsRun4");
   run6.onclick = function () {
     var value = myCodeMirror6.getValue();
-    var qs = Qs;
     axios({
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       method: 'post',
@@ -198,7 +193,6 @@ window.onload = function () {
   var run7 = document.getElementById("stringsRun5");
   run7.onclick = function () {
     var value = myCodeMirror7.getValue();
-    var qs = Qs;
     axios({
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       method: 'post',
@@ -227,7 +221,6 @@ window.onload = function () {
   var run8 = document.getElementById("exerciseRun");
   run8.onclick = function () {
     var value = myCodeMirror8.getValue();
-    var qs = Qs;
     axios({
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       method: 'post',
@@ -286,7 +279,6 @@ window.onload = function () {
     myCodeMirror8.setOption("value", initValueExercise);
     run8.onclick = function () {
       var value = myCodeMirror8.getValue();
-      var qs = Qs;
       axios({
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         method: 'post',

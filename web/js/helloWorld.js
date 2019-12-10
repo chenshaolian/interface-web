@@ -14,6 +14,7 @@ window.onload = function () {
     autoCloseBrackets: true, // 自动闭合符号
     styleActiveLine: true, // 显示选中行的样式
   }
+  var qs = Qs;
 
   var el = document.getElementById("editor");
   var myCodeMirror = CodeMirror.fromTextArea(el, options);
@@ -24,7 +25,6 @@ window.onload = function () {
   var run1 = document.getElementById("run");
   run1.onclick = function () {
     var value = myCodeMirror.getValue();
-    var qs = Qs;
     if (value !== '') {
       axios({
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -55,7 +55,6 @@ window.onload = function () {
   var run2 = document.getElementById("indentationRun");
   run2.onclick = function () {
     var value = myCodeMirror2.getValue();
-    var qs = Qs;
     if (value !== '') {
       axios({
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -86,7 +85,6 @@ window.onload = function () {
   var run3 = document.getElementById("exerciseRun");
   run3.onclick = function () {
     var value = myCodeMirror3.getValue();
-    var qs = Qs;
     if (value !== '') {
       axios({
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -144,7 +142,6 @@ window.onload = function () {
     
     run3.onclick = function () {
       var value = myCodeMirror3.getValue();
-      var qs = Qs;
       if (value != '') {
         axios({
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
