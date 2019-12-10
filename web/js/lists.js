@@ -1,28 +1,28 @@
 window.onload = function () {
-  var el = document.getElementById("editor");
-  var initValue = "mylist = []\n" + "mylist.append(1)\n" + "mylist.append(2)\n" + "mylist.append(3)\n" + "print(mylist[0]) # prints 1\n" + "print(mylist[1]) # prints 2\n" + "print(mylist[2]) # prints 3\n\n" + "# prints out 1,2,3\n" + "for x in mylist:\n" + "\tprint(x)";
-  var myCodeMirror = CodeMirror.fromTextArea(el, {
+  var options = {
     mode: "python",// 语言模式
-    // theme: "leecode",// 主题
     keyMap: "sublime",// 快键键风格
     lineNumbers: true,// 显示行号
     smartIndent: true, //智能缩进
     indentUnit: 4, // 智能缩进单位为4个空格长度
     indentWithTabs: true,  // 使用制表符进行智能缩进
-    lineWrapping: true,
-    // 在行槽中添加行号显示器、折叠器、语法检测器
-    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter", "CodeMirror-lint-markers"],
+    lineWrapping: true, // 自动换行
+    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter", "CodeMirror-lint-markers"],// 在行槽中添加行号显示器、折叠器、语法检测器
     foldGutter: true, // 启用行槽中的代码折叠
     autofocus: true,  //自动聚焦
     matchBrackets: true,// 匹配结束符号，比如"]、}"
     autoCloseBrackets: true, // 自动闭合符号
     styleActiveLine: true, // 显示选中行的样式
-  });
-  // 设置初始文本
+  }
+
+  var el = document.getElementById("editor");
+  var myCodeMirror = CodeMirror.fromTextArea(el, options);
+
+  var initValue = "mylist = []\n" + "mylist.append(1)\n" + "mylist.append(2)\n" + "mylist.append(3)\n" + "print(mylist[0]) # prints 1\n" + "print(mylist[1]) # prints 2\n" + "print(mylist[2]) # prints 3\n\n" + "# prints out 1,2,3\n" + "for x in mylist:\n" + "\tprint(x)";
   myCodeMirror.setOption("value", initValue);
-  // 编译
-  var test = document.getElementById("run");
-  test.onclick = function () {
+
+  var run1 = document.getElementById("run");
+  run1.onclick = function () {
     var value = myCodeMirror.getValue();
     var qs = Qs;
     axios({
@@ -45,29 +45,13 @@ window.onload = function () {
   };
 
   var el2 = document.getElementById("indentation");
+  var myCodeMirror2 = CodeMirror.fromTextArea(el2, options);
+
   var initValue2 = "mylist = [1,2,3]\n" + "print(mylist[10])";
-  var myCodeMirror2 = CodeMirror.fromTextArea(el2, {
-    mode: "python",// 语言模式
-    // theme: "leecode",// 主题
-    keyMap: "sublime",// 快键键风格
-    lineNumbers: true,// 显示行号
-    smartIndent: true, //智能缩进
-    indentUnit: 4, // 智能缩进单位为4个空格长度
-    indentWithTabs: true,  // 使用制表符进行智能缩进
-    lineWrapping: true,
-    // 在行槽中添加行号显示器、折叠器、语法检测器
-    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter", "CodeMirror-lint-markers"],
-    foldGutter: true, // 启用行槽中的代码折叠
-    autofocus: true,  //自动聚焦
-    matchBrackets: true,// 匹配结束符号，比如"]、}"
-    autoCloseBrackets: true, // 自动闭合符号
-    styleActiveLine: true, // 显示选中行的样式
-  });
-  // 设置初始文本
   myCodeMirror2.setOption("value", initValue2);
-  // 编译
-  var test = document.getElementById("indentationRun");
-  test.onclick = function () {
+
+  var run2 = document.getElementById("indentationRun");
+  run2.onclick = function () {
     var value = myCodeMirror2.getValue();
     var qs = Qs;
     axios({
@@ -90,29 +74,13 @@ window.onload = function () {
   };
 
   var el3 = document.getElementById("exercise");
+  var myCodeMirror3 = CodeMirror.fromTextArea(el3,options);
+
   var initValueExercise = 'numbers = []\n' + 'strings = []\n' + 'names = ["John", "Eric", "Jessica"]\n\n' + '# write your code here\n' + 'second_name = None\n\n\n' + '# this code should write out the filled arrays and thesecond name in the names list (Eric).\n' + 'print(numbers)\n' + 'print(strings)\n' + 'print("The second name on the names list is %s" %\n' + 'second_name)';
-  var myCodeMirror3 = CodeMirror.fromTextArea(el3, {
-    mode: "python",// 语言模式
-    // theme: "leecode",// 主题
-    keyMap: "sublime",// 快键键风格
-    lineNumbers: true,// 显示行号
-    smartIndent: true, //智能缩进
-    indentUnit: 4, // 智能缩进单位为4个空格长度
-    indentWithTabs: true,  // 使用制表符进行智能缩进
-    lineWrapping: true,
-    // 在行槽中添加行号显示器、折叠器、语法检测器
-    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter", "CodeMirror-lint-markers"],
-    foldGutter: true, // 启用行槽中的代码折叠
-    autofocus: true,  //自动聚焦
-    matchBrackets: true,// 匹配结束符号，比如"]、}"
-    autoCloseBrackets: true, // 自动闭合符号
-    styleActiveLine: true, // 显示选中行的样式
-  });
-  // 设置初始文本
   myCodeMirror3.setOption("value", initValueExercise);
-  // 编译
-  var test = document.getElementById("exerciseRun");
-  test.onclick = function () {
+
+  var run3 = document.getElementById("exerciseRun");
+  run3.onclick = function () {
     var value = myCodeMirror3.getValue();
     var qs = Qs;
     axios({
@@ -148,6 +116,7 @@ window.onload = function () {
       alert('再试一次，编译错误！')
     });;
   };
+
   var lis1 = document.getElementById("li1")
   var lis2 = document.getElementById("li2")
   lis1.onclick = function () {
@@ -170,8 +139,8 @@ window.onload = function () {
     document.getElementById('li2').style.visibility = 'visible';
     initValueExercise = 'numbers = []\n' + 'strings = []\n' + 'names = ["John", "Eric", "Jessica"]\n\n' + '# write your code here\n' + 'numbers.append(1)\n' + 'numbers.append(2)\n' + 'numbers.append(3)\n' + 'strings.append("hello")\n' + 'strings.append("world")\n\n' + 'second_name = names[1]\n\n' + '# this code should write out the filled arrays and thesecond name in the names list (Eric).\n' + 'print(numbers)\n' + 'print(strings)\n' + 'print("The second name on the names list is %s" %\n' + 'second_name)';
     myCodeMirror3.setOption("value", initValueExercise);
-    var test = document.getElementById("exerciseRun");
-    test.onclick = function () {
+
+    run3.onclick = function () {
       var value = myCodeMirror3.getValue();
       var qs = Qs;
       axios({
